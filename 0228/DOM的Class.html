@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .div4{
+            color:red
+        }
+    </style>
+</head>
+<body>
+    <div class="div1    div2    div3">11</div>
+    <script>
+
+        var div=document.querySelector("div");
+        // console.log(div.className)
+        // div.className+=" div3"
+        // div.className=div.className.replace("div2","");
+
+
+        // console.log(div.classList)//DOMTokenList
+
+        // 添加class
+        // div.classList.add("div4")
+        // class 中是否包含div2这个样式
+        // console.log(div.classList.contains("div2"))
+
+        // 遍历
+        // div.classList.forEach(function(item,key,list){
+        //     console.log(item,key)
+        // })
+
+        // 根据下标获取到对应的元素
+        // console.log(div.classList.item(0))
+
+        // 可以删除一个，也可以删除多个
+        // div.classList.remove("div1","div2")
+
+
+        // div.classList.replace("div2","div4")
+
+        // document.addEventListener("click",clickHandler);
+        // function clickHandler(e){
+        //     // 切换class
+        //     div.classList.toggle("div4")
+        // }
+
+
+
+            // function addClass(elem,className){
+            //     elem.className=className.split(/\s+/g).reduce(function(value,item){
+            //          if(!value.includes(item)) value.push(item);
+            //          return value;
+            //     },elem.className.match(/\S+/g)).join(" ")
+            // }
+
+
+            // addClass(div,"div4    div5   div3  ")
+
+
+            function removeClass(elem,className){
+              elem.className=className.split(/\s+/g).reduce(function(value,item){
+                    //   value=value.replace(item,"");
+                      value=value.replace(new RegExp(item,"gi"),"");
+                      return value;
+                },elem.className).replace(/^\s+/g,"");
+            }
+
+            removeClass(div,"div1 div2");
+    </script>
+</body>
+</html>

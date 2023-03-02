@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form>
+        <input type="text" id="year">年
+        <input type="text" id="month">月
+        <input type="text" id="day" onblur="BlurClear()">日
+    </form>
+
+    <script>
+        var form
+        var inputs
+        init();
+        function init() {
+            // 获取到dom元素
+            form = document.querySelector("form");
+            inputs = document.querySelectorAll("input")
+            // 表单节点转换数组
+            Array.from(form.children).forEach(function (item) {
+                item.bool = false;
+            })
+            form.addEventListener("input", inputHandler);
+        }
+        // 进行文本框值的正则判断
+        function inputHandler(e) {
+            // 根据input的id值进行改变
+            switch (e.target.id) {
+                // 年
+                case "year":
+                    judge(e.target.value, e.target, /^(19|20)\d{2}$/)
+                    break;
+                // 月
+                case "month":
+                    judge(e.target.value, e.target, /^[1-9]$|^1[0-2]$/);
+                    break;
+                // 日
+                case "day":
+                    judgeDay(e.target.value, e.target);
+                    break;
+            }
+        }
+        // 判断是否输入正确
+        function judge(str, input, reg) {
+            // 如果输入正确，则边框显示的是绿色
+            if (reg.test(str)) {
+                input.style.outlineColor = "green";
+                input.bool = true;
+            } else {
+                // 如果输入不正确，则显示红框
+                input.style.outlineColor = "red";
+                input.bool = false;
+            }
+        }
+
+        // 判断日这一天
+        function judgeDay(str, input) {
+            // 切割
+            var bool = Array.from(form.children).slice(0, 2).every(function (input) {
+                return input.bool;
+            });
+            if (!bool) {
+                input.style.outlineColor = "red";
+                return;
+            }
+            var year = ~~form.children[0].value;
+            var month = ~~form.children[1].value;
+            var date = new Date();
+            date.setFullYear(year);
+            date.setMonth(month - 1);
+            for (var i = 29; i < 33; i++) {
+                date.setDate(i)
+                if (date.getMonth() !== month - 1) break;
+            }
+
+            var day = i - 1;
+            var arr = ["[0-8]$", "\\d$", "\\d$|^30$", "\\d$|^3[01]$"]
+            var reg = new RegExp("^[1-9]$|^1\\d$|^2" + arr[day - 28])
+            if (reg.test(str)) {
+                input.style.outlineColor = "green";
+            } else {
+                input.style.outlineColor = "red";
+            }
+        }
+
+        // 文本框失去焦点时，清空文本
+        function BlurClear() {
+            for (var i = 0; i < inputs.length; i++) {
+                inputs[i].value = ''
+            }
+        }
+    </script>
+</body>
+
+</html>

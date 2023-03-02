@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // var str = "aaaaaagggggghhhhhiiiil";
+        // console.log(str.match(/(\w)\1*/g))
+        var str = ['cool', "cook", "lock"]
+        // var arr = {}
+        // str = str.match(/(\w)\1*/g)
+        // console.log(str);
+        var obj = str.join("").split("").sort()
+        var obj1 = obj.join('').match(/(.)\1*/g).reduce(function (v, t) {
+            v[t[0]] = t.length;
+            return v;
+        }, {})
+        console.log(obj1);
+        // var arr
+        // Object.entries(obj1).forEach(([key, value]) => {
+        //     // console.log(key + ':' + value); // a:1, b:2, c:3
+
+        //     arr = []
+
+        //     // 将需要排序的 key, 按照 "从小到大" 进行排列
+        //     let sortKeys = Object.keys(obj1).sort((a, b) => {
+        //         return obj1[a].key - obj1[b].key
+        //     })
+        //     console.log(sortKeys);
+
+        //     // 循环排列好的 key, 重新组成一个新的数组
+        //     for (var sortIndex in sortKeys) {
+        //         arr.push(obj1[sortKeys[sortIndex]])
+        //     }
+
+        //     // console.log(arr);
+        // })
+        // console.log(arr);
+
+
+
+
+        // for (var key in obj1) {
+        // var arr1 = key
+        // var arr2 = obj1[key]
+        // console.log(arr1, arr2);
+        // console.log(key, obj1[key]);
+        // for (let i = 0; i < arr1.length; i++) {
+        //     for (var j = 0; j < arr2.length - 1 - i; j++) {
+        //         if (arr2[i] > arr2[j]) {
+        //             var temp = arr2[i];
+        //             arr2[i] = arr2[j];
+        //             arr2[j] = temp;
+        //             temp = arr1[i];
+        //             arr1[i] = arr1[j];
+        //             arr1[j] = temp;
+        //         }
+
+        //     }
+        // }
+        // console.log(obj1[key], obj1);
+        //     // arr.push(key, obj1[key])
+        //     arr = { ...key, ...obj[key] }
+        //     // arr.push(obj1[key])
+        //     // return obj1[key].sort()
+        //     // console.log(key);
+        // }
+        // arr.sort()
+        // console.log(arr);
+        // console.log(obj1);
+        // for (var key in obj) {
+        //     // arr.push(obj[i])
+        //     var a = obj[key]
+        //     var b = obj
+
+        // console.log(a, b);
+        //     // return a, b
+        // }
+
+        // console.log(a);
+        // var up = Object.values(obj).sort((a, b) => { return a.age - b.age })//升序
+        // console.log('obj', obj);
+
+
+
+
+        var str = []
+        for (var key in obj1) {
+            str.push({
+                name: key,
+                value: obj1[key]
+            })
+        }
+        str.sort((a, b) => {
+            return b.value - a.value
+        })
+        for (var i in str) {
+            console.log(str[i].name);
+        }
+
+    </script>
+</body>
+
+</html>

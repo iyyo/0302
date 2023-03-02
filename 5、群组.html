@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // var str = "132+456=";
+        // str = str.replace(/(\d+)\+(\d+)\=/, function (item, $1, $2, index, str) {
+        //     console.log(item, index);
+        //     return item + (~~$1 + ~~$2);
+        // });
+        // console.log(str)
+
+
+        // var tel = "18678091450";
+        // tel = tel.replace(/(\d{3})\d{4}(\d{4})/, function (item, $1, $2) {
+        //     return $1 + "****" + $2;
+        // })
+        // tel = tel.replace(/(\d{3})\d{4}(\d{4})/, "$1****$2");
+        // console.log(tel)
+
+
+        // var str = "《水浒》、《西游记》、《红楼梦》、《三国演义》是中国的四大古典名著!";
+        // // console.log(str.match(/《(.*?)》/g))
+        // for (var [item, $1] of str.matchAll(/《(.*?)》/g)) {
+        //     console.log($1)
+        // }
+
+        // str.replace(/《(.*?)》/g, function (item, $1) {
+        //     console.log($1)
+        // })
+
+        // 书名号转换为大小于号
+        // str = str.replaceAll(/《|》/g, function (item) {
+        //     return item === "《" ? "<" : ">"
+        // });
+        // console.log(str)
+
+
+        // var str = "东西南北";
+        // var originArray = ["华北1", "华南2", "华西1", "华南1", "华西2", "华东1", "华东2", "华东4"];
+        // originArray = originArray.sort(function (a, b) {
+        //     // a/b 是华后面任意一个字符
+        //     a = a.match(/华(.)(\d)/);
+        //     b = b.match(/华(.)(\d)/);
+        //     // 如果华后面的字符相等
+        //     if (str.indexOf(a[1]) === str.indexOf(b[1])) {
+        //         // 通过数字排序
+        //         return a[2] - b[2];
+        //     } else {
+        //         return str.indexOf(a[1]) - str.indexOf(b[1]);
+        //     }
+        // })
+        // console.log(originArray)
+
+        // var str = "2[2[3[cd]2[ab]]2[o]]3[ef]"
+        // function parseStr(str) {
+        //     if (!/\d+\[\w+\]/.test(str)) return str;
+        //     str = str.replace(/(\d+)\[(\w+)\]/g, function (item, $1, $2) {
+        //         return $2.repeat($1);
+        //     })
+        //     return parseStr(str)
+        // }
+        // console.log(parseStr(str));
+
+
+        // var str = "abacadaaaagccsrrc";
+        // str = str.replace(/a(?=c)/g, "z")  // abzcadaaaagccsrrc
+        // console.log(str)    // 匹配的是c前面的字符，把a替换成z
+
+        // str = str.replace(/a(?!c)/g, "z")  // zbaczdzzzzgccsrrc
+        // console.log(str);   // 字符里面要是没有ac，那么就把a字符替换成z字符
+
+        // var str = "acbacadabacad";
+        // str = str.replace(/(?<=c)b/g, "2")// 把c后面的字符b替换成2
+        // console.log(str);
+        // str = str.replace(/(?<!c)b/g, "2")// 字符b的前面要是不是c，那么就替换成2
+        // console.log(str)
+
+
+        // var str = "aaaaaagggggghhhhhiiiil";
+        // console.log(str.match(/(\w)\1+/g)) // ['aaaaaa', 'gggggg', 'hhhhh', 'iiii', 'l']
+
+
+        var str = "ajdalkjdhajklshdajhdqwdhqidhkjdhqwiwdh";
+        // str = str.split("").sort().join("").replace(/(.)\1*/g, function (item) {
+        //     return item[0] + "{" + item.length + "}"
+        // });
+        var obj = str.split("").sort().join("").match(/(.)\1*/g).reduce(function (v, t) {
+            v[t[0]] = t.length;
+            return v;
+        }, {})
+        console.log(obj)
+
+
+        // console.log(str)
+    </script>
+</body>
+
+</html>

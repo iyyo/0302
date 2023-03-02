@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // /^  /  起始
+        // /  $/  结束
+
+        // /^xietian$/.test("xietian")
+
+        // console.log("    abc  de  fe    ".replace(/^\s+/g,""))
+        // console.log("    abc  de  fe    ".replace(/\s+$/g,""))
+
+
+        // 或者   |
+        // []仅能代表一个字符
+        // console.log(/[ab]/)
+        // console.log(/ab|cd/);//匹配ab或者cd
+
+        // console.log(/ab||cd/)
+        // |空字符|
+        // console.log("abcd".match(/ab||cd/g))    
+
+        // console.log("abcd".match(/|ab|cd/g));
+        // |也是有优先级的，写在前面的优先匹配
+
+
+        // 1-31
+        // /^[1-9]$|^[12]\d$|^3[01]$/.test(input.value)
+
+        // 0-255
+        // /^\d$|^[1-9]\d$|^1\d{2}$|^2[0-4]\d$|^25[0-5]$/.test(input.value)
+
+
+        // 0.0.0.0-255.255.255.255 ip地址验证
+        // /^(\d|[1-9]\d|1\d{2}|2[0-4]\d|25[0-5])(\.(\d|[1-9]\d|1\d{2}|2[0-4]\d|25[0-5])){3}$/.test(input.value)
+    </script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text">
+    <script>
+        // console.log("abcdabcd".match(/abcd/));
+        // console.log("bacdbacd".match(/abcd/g));
+        // console.log("catcotcet".match(/cot/g));
+
+        // . 通配符 代表任意一个字符
+        // console.log("catcotcet".match(/c.t/g));
+
+        // console.log("coocttcee".match(/c../g));
+
+        // \.  将功能性字符恢复为普通字符含义
+        // console.log("catc.tcet".match(/c\.t/g))
+        // console.log("catc\\tcet".match(/c\\t/g))
+        // document.body.innerHTML="catc\\tcet"
+
+        // [be]  []内的任意一个字符
+        // console.log("abcadcaec".match(/a[be]c/g))
+        // console.log("abcadcaec".match(/[ab][cd]/g))
+
+        // console.log("abcdef".match(/a\[b\]/));// a[b]
+
+        // [0123456789]  [0-9]
+        // [a-zA-Z]  不能写[a-Z][A-z]
+       //  /[0-9a-zA-Z]/
+      //   /[1-31]/ 错误的
+
+    //   非选择 [^]
+      //    [^0-9]  除了[]内的内容以外其他都满足   ^只要不是[]内第一个都代表的^字符
+        // [\^0-9] ^字符 0-9
+        // [a^z] a 字符^ z 
+        
+        
+        // \d   [0-9]
+        // \D   [^0-9]
+        // \w   [a-zA-Z0-9_]
+        // \W    [^a-zA-Z0-0_]
+        // \s    空白字符
+        // \S    非空白字符
+
+
+        // console.log("i love javascript".match(/\s/g))
+        // console.log("i love javascript".split(/\s/g))
+        // console.log("i  love javascript".split(/\s/g))
+        // console.log("i  love javascript".match(/\S/g))
+        
+
+    </script>
+</body>
+</html>

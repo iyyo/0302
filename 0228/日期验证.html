@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <form>
+    <input type="text" id="year">年
+    <input type="text" id="month">月
+    <input type="text" id="day">日
+   </form>
+
+    <script>
+        var form
+        init();
+        function init(){
+            form=document.querySelector("form");
+       
+            Array.from(form.children).forEach(function(item){
+                item.bool=false;
+            })
+            form.addEventListener("input",inputHandler);
+        }
+
+        function inputHandler(e){
+            switch(e.target.id){
+                case "year":
+                    judge(e.target.value,e.target,/^(19|20)\d{2}$/)
+                    break;
+                case "month":
+                    judge(e.target.value,e.target,/^[1-9]$|^1[0-2]$/);
+                    break;
+                case "day":
+                 judgeDay(e.target.value,e.target);
+                    break;
+            }
+        }
+
+        function judge(str,input,reg){
+            if(reg.test(str)){
+                input.style.outlineColor="green";
+                input.bool=true;
+            }else{
+                input.style.outlineColor="red";
+                input.bool=false;
+            }
+        }
+
+     
+        function judgeDay(str,input){
+           var bool= Array.from(form.children).slice(0,2).every(function(input){
+                return input.bool;
+            });
+            if(!bool){
+                input.style.outlineColor="red";
+                return;
+            }
+            var year=~~form.children[0].value;
+            var month=~~form.children[1].value;
+            var date=new Date();
+            date.setFullYear(year);
+            date.setMonth(month-1);
+            for(var i=29;i<33;i++){
+                date.setDate(i)
+                if(date.getMonth()!==month-1) break;
+            }
+      
+            var day=i-1;
+            var arr=["[0-8]$","\\d$","\\d$|^30$","\\d$|^3[01]$"]
+            var reg=new RegExp("^[1-9]$|^1\\d$|^2"+arr[day-28])
+            if(reg.test(str)){
+                input.style.outlineColor="green";
+            }else{
+                input.style.outlineColor="red";
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // a{n} {n} 重复几次
+        // console.log("aaaaaaaaa".match(/a{4}/g))
+
+        // console.log("jahsdjha45asd".match(/.{4}/g))
+
+        // console.log("asdjh182673askjhd18273".match(/\d{5}/g))
+
+        // {n,m}  n就是最小重复次数 m就是最大重复次数
+        // console.log("asdjh182673askjhd18273".match(/\d{5,6}/g))
+        // 贪婪匹配 先找重复次数最大的，这就是贪婪匹配
+        // console.log("3242567890".match(/\d{2,6}/g))
+
+    //    {n,}  当没有给最大值时 就是无限大
+        // console.log("34567890".match(/\d{2,}/g))
+        // console.log("34".match(/\d{2,}/g))
+        // console.log("3".match(/\d{2,}/g))
+
+        // 当n是0时  z{0}  代表空字符 “”   代表这个字符不存在
+        // {0,1} 可以有也可以没有
+        // console.log("color".match(/colou{0}r/g))
+        // console.log("color".match(/colou{0,1}r/g))
+        // console.log("456789".match(/\d{0,10}/))
+        // console.log("456789".match(/\d{0,}/)) //可以没有也可以有无穷个数值
+        // console.log("456789".match(/\d{1,}/)) //至少要有一个数值
+
+
+
+        // ?    {0,1}
+        // /colou?r/
+
+        // * {0,}  可以没有，也可以有无穷个
+        // \d*     .*任意多个任意字符
+
+        // +  {1,}  至少有一个字符
+        // \d+  只是有一个数值
+        
+        
+        // console.log("i  love     javascript".split(/\s+/g))
+
+        // console.log("as lajsd asjkd  asdkja  asdk jajksd ".match(/\S+/g).join(" "))
+
+
+        
+
+    </script>
+</body>
+</html>
